@@ -1,5 +1,6 @@
 buildscript {
     ext {
+		kotlinVersion = '1.6.20'
         buildToolsVersion = '30.0.2'
         compileSdkVersion = 31
         targetSdkVersion = 31
@@ -12,8 +13,8 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.3'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+        classpath("com.android.tools.build:gradle:7.3.1")
     }
 }
 
@@ -21,9 +22,9 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
-def DEFAULT_COMPILE_SDK_VERSION = 28
-def DEFAULT_BUILD_TOOLS_VERSION = "28.0.3"
-def DEFAULT_TARGET_SDK_VERSION = 28
+def DEFAULT_COMPILE_SDK_VERSION = 31
+def DEFAULT_BUILD_TOOLS_VERSION = "30.0.2"
+def DEFAULT_TARGET_SDK_VERSION = 31
 
 def safeExtGet(prop, fallback) {
     rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
@@ -61,7 +62,7 @@ dependencies {
 
     implementation 'com.facebook.react:react-native:+'
 
-    implementation "org.jetbrains.kotlin:$_kotlinStdlib:$_kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 
     implementation 'net.gotev:uploadservice-okhttp:4.7.0'
 
